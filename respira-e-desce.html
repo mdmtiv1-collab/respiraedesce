@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método Respira e Desce - Preparação para o Parto</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts Preload & Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet"></noscript>
     
     <style>
         /* ── SISTEMA DE DESIGN ── */
@@ -1152,6 +1153,12 @@
             max-width: 400px;
             width: 100%;
         }
+
+        /* ── PERFORMANCE OPTIMIZATIONS ── */
+        .sec-dor, .sec-concept, .sec-tecnicas, .sec-paraquem, .sec-recebe, .sec-depoi, .sec-oferta, .sec-faq {
+            content-visibility: auto;
+            contain-intrinsic-size: 600px;
+        }
     </style>
 </head>
 <body>
@@ -1433,7 +1440,7 @@
                         <p class="depoi-texto">"Eu tinha muito medo das contrações. Pratiquei a respiração Flor e Vela toda semana e quando chegou a hora, meu corpo já sabia o que fazer. Dilatei de 4 para 10 cm em menos de 3 horas. A enfermeira ficou surpresa."</p>
                     </div>
                     <div class="depoi-footer">
-                        <div class="depoi-avatar"><img src="depoimento1.png" alt="Ana Paula M."></div>
+                        <div class="depoi-avatar"><img src="depoimento1.png" alt="Ana Paula M." loading="lazy"></div>
                         <div>
                             <div class="depoi-nome">Ana Paula M.</div>
                             <div class="depoi-tag">Parto normal sem intercorrências</div>
@@ -1447,7 +1454,7 @@
                         <p class="depoi-texto">"O módulo do acompanhante foi o que mais me ajudou. Meu marido sabia exatamente onde massagear e como me lembrar de respirar. Em vez de travar, ele foi meu maior apoio lá dentro."</p>
                     </div>
                     <div class="depoi-footer">
-                        <div class="depoi-avatar"><img src="depoimento2.png" alt="Camila R."></div>
+                        <div class="depoi-avatar"><img src="depoimento2.png" alt="Camila R." loading="lazy"></div>
                         <div>
                             <div class="depoi-nome">Camila R.</div>
                             <div class="depoi-tag">Começou com 32 semanas, parto normal</div>
@@ -1461,7 +1468,7 @@
                         <p class="depoi-texto">"Fiz o pré-natal pelo SUS e não tinha acesso a doula. Esse método foi literalmente o único lugar onde aprendi técnica de verdade. Não tive episiotomia nem laceração. Não acredito até hoje."</p>
                     </div>
                     <div class="depoi-footer">
-                        <div class="depoi-avatar"><img src="depoimento3.png" alt="Juliana F."></div>
+                        <div class="depoi-avatar"><img src="depoimento3.png" alt="Juliana F." loading="lazy"></div>
                         <div>
                             <div class="depoi-nome">Juliana F.</div>
                             <div class="depoi-tag">Hospital Público (SUS), parto normal</div>
