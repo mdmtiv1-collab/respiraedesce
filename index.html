@@ -670,10 +670,23 @@
         }
 
         .oferta-grid {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
             align-items: center;
-            width: 100%;
+        }
+
+        .oferta-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4.5vw, 44px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .oferta-info h2 em {
+            font-style: italic;
+            color: var(--accent-peach);
         }
 
         /* ── THE DETAILED CHECKOUT CARD (WHITE & CORAL) ── */
@@ -683,9 +696,8 @@
             padding: 44px 36px;
             color: var(--text-main);
             box-shadow: 0 24px 64px rgba(18, 13, 22, 0.15);
-            max-width: 460px;
-            width: 100%;
-            margin: 0 auto;
+            max-width: 440px;
+            margin-left: auto;
             position: relative;
         }
 
@@ -1481,6 +1493,11 @@
     <!-- SEÇÃO OFERTA / CARD DE CHECKOUT INTEGRADO -->
     <section class="sec-oferta id-oferta" id="oferta">
         <div class="container oferta-grid">
+            
+            <div class="oferta-info">
+                <span class="hero-eyebrow">Acesso imediato</span>
+                <h2>Comece hoje.<br>O seu parto <em>agradece.</em></h2>
+            </div>
 
             <!-- THE PREMIUM DETAILED CHECKOUT CARD -->
             <div class="offer-card" id="card-oferta">
