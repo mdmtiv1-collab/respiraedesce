@@ -1132,6 +1132,92 @@
             content-visibility: auto;
             contain-intrinsic-size: 600px;
         }
+
+        /* ── PURCHASE NOTIFICATION POPUP ── */
+        .purchase-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(253, 245, 242, 0.95);
+            border: 1px solid rgba(226, 88, 62, 0.2);
+            border-radius: 12px;
+            padding: 12px 16px;
+            box-shadow: 0 8px 30px rgba(54, 36, 36, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            transform: translateY(120%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+            opacity: 0;
+            max-width: 320px;
+            backdrop-filter: blur(10px);
+            pointer-events: auto;
+        }
+
+        .purchase-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .purchase-notification .notification-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #2DC275;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .purchase-notification .notification-content {
+            font-size: 13px;
+            color: #362424;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .purchase-notification .notification-content strong {
+            color: #241818;
+            font-weight: 700;
+        }
+
+        .purchase-notification .notification-time {
+            display: block;
+            font-size: 11px;
+            color: #E2583E;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        .purchase-notification .notification-close {
+            background: none;
+            border: none;
+            color: #362424;
+            font-size: 16px;
+            cursor: pointer;
+            opacity: 0.5;
+            padding: 0;
+            margin-left: 4px;
+            align-self: flex-start;
+            line-height: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .purchase-notification .notification-close:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .purchase-notification {
+                left: 12px;
+                right: 12px;
+                bottom: 16px;
+                max-width: calc(100% - 24px);
+            }
+        }
     </style>
     
     <!-- UTMify Pixel Tracking Scripts -->
@@ -1597,6 +1683,59 @@
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 }
             });
+        });
+
+        // ── NOTIFICAÇÕES DE COMPRAS EM TEMPO REAL (SOCIAL PROOF) ──
+        document.addEventListener("DOMContentLoaded", function() {
+            const femaleNames = [
+                "Mariana", "Ana Clara", "Beatriz", "Camila", "Gabriela", "Juliana", 
+                "Larissa", "Letícia", "Amanda", "Fernanda", "Isabela", "Luana", 
+                "Mariane", "Natália", "Patrícia", "Aline", "Jéssica", "Bruna", 
+                "Caroline", "Rafaela", "Vanessa", "Sabrina", "Renata", "Tatiane", 
+                "Carolina", "Priscila", "Débora", "Thais", "Bianca", "Milena"
+            ];
+
+            const times = [
+                "há 45 segundos", "há 1 minuto", "há 2 minutos", "há 3 minutos", 
+                "há 5 minutos", "há 7 minutos", "há 10 minutos", "há 12 minutos"
+            ];
+
+            const popup = document.createElement("div");
+            popup.className = "purchase-notification";
+            popup.innerHTML = `
+                <div class="notification-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="notification-content">
+                    <span class="notification-text"><strong>Ana</strong> acabou de adquirir o <em>Método Respira e Desce</em></span>
+                    <span class="notification-time">há 2 minutos</span>
+                </div>
+                <button class="notification-close" aria-label="Fechar">&times;</button>
+            `;
+            document.body.appendChild(popup);
+
+            popup.querySelector(".notification-close").addEventListener("click", function() {
+                popup.classList.remove("show");
+            });
+
+            function showRandomNotification() {
+                const randomName = femaleNames[Math.floor(Math.random() * femaleNames.length)];
+                const randomTime = times[Math.floor(Math.random() * times.length)];
+
+                popup.querySelector(".notification-text").innerHTML = `<strong>${randomName}</strong> acabou de adquirir o <em>Método Respira e Desce</em>`;
+                popup.querySelector(".notification-time").textContent = randomTime;
+
+                popup.classList.add("show");
+
+                setTimeout(function() {
+                    popup.classList.remove("show");
+                }, 6000);
+            }
+
+            setTimeout(showRandomNotification, 8000);
+            setInterval(showRandomNotification, 25000);
         });
     </script>
 </body>
