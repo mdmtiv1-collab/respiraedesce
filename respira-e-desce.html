@@ -1220,6 +1220,62 @@
                 max-width: calc(100% - 24px);
             }
         }
+
+        /* ── SEÇÃO APRESENTAÇÃO DOULA ── */
+        .sec-doula {
+            background: #FAF8F5;
+            text-align: center;
+            padding: 60px 0 20px 0;
+        }
+
+        .doula-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .doula-img-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .doula-img-placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #F3EDE4;
+            border: 2px dashed rgba(226, 88, 62, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E2583E;
+            overflow: hidden;
+        }
+
+        .doula-img-placeholder svg {
+            width: 44px;
+            height: 44px;
+            opacity: 0.7;
+        }
+
+        .doula-text-main {
+            font-size: 15px;
+            font-weight: 700;
+            color: #241818;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            max-width: 500px;
+        }
+
+        .doula-text-sub {
+            font-size: 13px;
+            font-weight: 500;
+            color: #362424;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
     </style>
     
     <!-- UTMify Pixel Tracking Scripts -->
@@ -1479,6 +1535,28 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO APRESENTAÇÃO DOULA -->
+    <section class="sec-doula">
+        <div class="container-narrow">
+            <div class="doula-profile">
+                <div class="doula-img-wrapper">
+                    <div class="doula-img-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </div>
+                <p class="doula-text-main">
+                    Conheça Roberta, doula especialista em respiração estratégica para o parto normal.
+                </p>
+                <p class="doula-text-sub">
+                    Com mais de 527 mulheres ajudadas, Roberta desenvolveu o Método Respira e Desce para ensinar gestantes a usarem a respiração da forma correta durante o trabalho de parto, ajudando no controle da dor, na condução do corpo e na hora de fazer força sem desespero.
+                </p>
             </div>
         </div>
     </section>
