@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método Parto com Confiança - Preparação para o Parto</title>
-    <!-- Google Fonts Preload & Optimization -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         /* ── SISTEMA DE DESIGN (LIGHT MODE PREMIUM) ── */
@@ -64,12 +63,12 @@
         }
 
         .container-narrow {
-            max-width: 680px;
+            max-width: 760px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ── BARRA DE ANÚNCIO ── */
+        /* ── BARRA DE ANÚNCIO DINÂMICA ── */
         .announcement-bar {
             background: var(--primary);
             color: var(--white);
@@ -86,13 +85,36 @@
             font-weight: 600;
         }
 
+        /* TIMER DE ESCASSEZ */
+        .scarcity-bar {
+            background: #241818;
+            color: var(--white);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scarcity-bar span.time-badge {
+            background: var(--red-alert);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         /* ── HERO SECTION ── */
         .hero {
             background: linear-gradient(135deg, #FAF8F5 0%, #FDF5F2 100%);
             color: var(--text-main);
-            padding: 80px 0 100px;
+            padding: 60px 0 80px;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .hero::before {
@@ -105,65 +127,40 @@
             pointer-events: none;
         }
 
-        .hero-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
         .hero-eyebrow {
             display: inline-block;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-family: 'Raleway', sans-serif;
             font-size: clamp(28px, 4.5vw, 42px);
             line-height: 1.25;
             font-weight: 800;
             color: var(--text-title);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
         }
 
         .hero h1 em {
-            font-style: italic;
+            font-style: normal;
             color: #E2583E;
-        }
-
-        .hero h1 strong {
-            font-style: italic;
-            color: #E2583E;
-            font-weight: inherit;
-        }
-
-        .hero-sub {
-            font-size: clamp(14px, 1.8vw, 16.5px);
-            line-height: 1.6;
-            color: var(--text-muted);
-            margin-bottom: 36px;
-            font-weight: 400;
-        }
-
-        .hero-sub strong {
-            color: var(--text-main);
-            font-weight: 700;
+            font-weight: 900;
         }
 
         .hero-video-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin: 30px 0;
             width: 100%;
         }
 
@@ -177,27 +174,50 @@
             border: 4px solid var(--bg-alt);
         }
 
-        .hero-cta-group {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-items: center;
+        .hero-product-tag {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 20px;
+        }
+
+        .hero-price s {
+            color: var(--red-alert);
+            font-weight: 700;
+        }
+
+        .hero-price strong {
+            color: var(--green-success);
+            font-size: 36px;
+            font-weight: 800;
         }
 
         .btn-main-cta {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             background: var(--green-success);
             color: var(--white);
             font-family: 'Raleway', sans-serif;
             font-weight: 700;
-            font-size: 15px;
-            padding: 16px 36px;
+            font-size: 16px;
+            padding: 18px 44px;
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 8px 32px rgba(45, 194, 117, 0.3);
             transition: var(--transition);
+            letter-spacing: 0.5px;
         }
 
         .btn-main-cta:hover {
@@ -206,16 +226,12 @@
             background: #24B16A;
         }
 
-        .hero-price-note {
-            font-size: 13px;
-            color: var(--text-muted);
+        .hero-badge-img {
+            margin-top: 24px;
+            max-width: 280px;
+            height: auto;
+            opacity: 0.95;
         }
-
-        .hero-price-note strong {
-            color: var(--primary);
-            font-size: 15px;
-        }
-
 
         /* ── SECTIONS GERAIS ── */
         .section-padding {
@@ -234,37 +250,183 @@
         }
 
         .section-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: clamp(28px, 4.5vw, 40px);
-            font-weight: 700;
+            font-size: clamp(28px, 4.5vw, 38px);
+            font-weight: 800;
             line-height: 1.25;
             color: var(--text-title);
             text-align: center;
             margin-bottom: 24px;
+            letter-spacing: -0.5px;
         }
 
         .section-title em {
             font-style: italic;
             color: var(--primary);
+            font-weight: inherit;
         }
 
         .section-desc {
-            font-size: 16px;
+            font-size: 16.5px;
             color: var(--text-muted);
             text-align: center;
-            max-width: 600px;
+            max-width: 680px;
             margin: -8px auto 48px;
+            line-height: 1.7;
+        }
+
+        /* ── SEÇÃO INTRODUÇÃO (A TRANSFORMAÇÃO) ── */
+        .sec-intro {
+            background-color: var(--white);
+            border-bottom: 1px solid rgba(54, 36, 36, 0.05);
+        }
+
+        .intro-text-block {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .intro-text-block p {
+            margin-bottom: 20px;
+        }
+
+        .intro-text-block strong {
+            color: var(--text-title);
+            font-weight: 700;
+        }
+
+        .rating-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-top: 32px;
+            font-size: 15px;
+        }
+
+        .rating-stars {
+            color: #FFB500;
+            font-size: 18px;
+        }
+
+        /* ── SEÇÃO O QUE VOCÊ VAI APRENDER ── */
+        .sec-learn {
+            background-color: var(--bg-card);
+        }
+
+        .learn-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .learn-item {
+            background: var(--white);
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: var(--transition);
+            border: 1px solid rgba(184, 92, 75, 0.03);
+        }
+
+        .learn-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .learn-icon {
+            width: 22px;
+            height: 22px;
+            stroke: var(--green-success);
+            stroke-width: 3;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .learn-text {
+            font-size: 15.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .learn-text strong {
+            color: var(--text-title);
+            font-weight: 700;
+        }
+
+        /* ── SEÇÃO METAS ── */
+        .sec-goals {
+            background-color: var(--white);
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .goal-card {
+            background: var(--bg-main);
+            border-radius: var(--radius-md);
+            padding: 32px 28px;
+            border: 1px solid rgba(54, 36, 36, 0.04);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .goal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .goal-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .goal-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 12px;
+        }
+
+        .goal-desc {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* ── SEÇÃO COMPARATIVA: DOR VS SOLUÇÃO ── */
-        .sec-dor {
-            background-color: var(--white);
+        .sec-comparison {
+            background-color: var(--bg-main);
+            border-top: 1px solid rgba(54, 36, 36, 0.05);
+            border-bottom: 1px solid rgba(54, 36, 36, 0.05);
         }
 
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -273,17 +435,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            align-items: stretch;
         }
 
         .comparison-card {
             padding: 24px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            position: relative;
             border: 1px solid transparent;
             transition: var(--transition);
         }
@@ -296,21 +453,19 @@
         .comparison-card.card-pain {
             background-color: var(--red-alert-bg);
             border-color: rgba(194, 75, 64, 0.08);
-            color: var(--text-main);
         }
 
         .comparison-card.card-solution {
             background-color: var(--green-success-bg);
             border-color: rgba(59, 107, 76, 0.08);
-            color: var(--text-main);
         }
 
         .comparison-badge {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: inline-block;
         }
 
@@ -323,289 +478,163 @@
         }
 
         .comparison-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 8px;
-        }
-
-        .card-pain .comparison-title {
-            color: #8A3026;
-        }
-
-        .card-solution .comparison-title {
-            color: #274D34;
+            color: var(--text-title);
         }
 
         .comparison-desc {
-            font-size: 14.5px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.55;
             color: var(--text-muted);
         }
 
         .comparison-desc strong {
-            color: var(--text-main);
+            color: var(--text-title);
             font-weight: 700;
         }
 
-        /* ── EXPLICANDO O MECANISMO ÚNICO ── */
-        .sec-concept {
-            background: linear-gradient(135deg, var(--bg-alt) 0%, #FAF8F5 100%);
-            color: var(--text-main);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
+        /* ── SEÇÃO CONTEÚDO (MÓDULOS) ── */
+        .sec-modules {
+            background-color: var(--white);
         }
 
-        .sec-concept::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(184, 92, 75, 0.05) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .concept-quote {
-            font-family: 'Raleway', sans-serif;
-            font-style: italic;
-            font-size: clamp(20px, 4vw, 28px);
-            color: var(--primary);
-            line-height: 1.4;
-            max-width: 800px;
-            margin: 0 auto 32px;
-            padding: 0 16px;
-        }
-
-        .concept-body {
-            font-size: 16.5px;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .concept-body p {
-            margin-bottom: 20px;
-        }
-
-        .concept-body strong {
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
-        /* ── TÉCNICAS DO MÉTODO ── */
-        .tecnicas-grid {
+        .modules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
             margin-top: 40px;
         }
 
-        .tecnica-card {
-            background-color: var(--white);
+        .module-card {
+            background: var(--bg-card);
             border-radius: var(--radius-md);
-            padding: 32px 28px;
-            border: 1px solid rgba(54, 36, 36, 0.05);
+            padding: 36px 30px;
+            border: 1px solid rgba(184, 92, 75, 0.05);
             box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
             transition: var(--transition);
         }
 
-        .tecnica-card::before {
+        .module-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary), #8F5C77);
+            background: var(--primary);
         }
 
-        .tecnica-card:hover {
-            transform: translateY(-4px);
+        .module-card:hover {
+            transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            border-color: rgba(184, 92, 75, 0.1);
         }
 
-        .tecnica-num {
+        .module-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .module-lesson-title {
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1.5px;
             color: var(--text-light);
             text-transform: uppercase;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: block;
         }
 
-        .tecnica-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: 20px;
+        .module-title {
+            font-size: 19px;
             font-weight: 700;
             color: var(--text-title);
             margin-bottom: 12px;
         }
 
-        .tecnica-desc {
+        .module-desc {
             font-size: 14.5px;
             color: var(--text-muted);
-            line-height: 1.65;
-            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        .tecnica-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--primary);
-            background-color: var(--bg-card);
-            padding: 4px 12px;
-            border-radius: 20px;
+        /* ── SEÇÃO BÔNUS ── */
+        .sec-bonus {
+            background-color: var(--bg-main);
         }
 
-        /* ── PARA QUEM ── */
-        .sec-paraquem {
-            background-color: var(--white);
-        }
-
-        .paraquem-box {
-            max-width: 760px;
-            margin: 0 auto;
-            background-color: var(--bg-card);
-            padding: 40px;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(184, 92, 75, 0.06);
-        }
-
-        .paraquem-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .paraquem-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            font-size: 15.5px;
-            color: var(--text-muted);
-        }
-
-        .paraquem-item svg {
-            width: 20px;
-            height: 20px;
-            stroke: var(--primary);
-            stroke-width: 2.5;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        /* ── DEPOIMENTOS ── */
-        .sec-depoi {
-            background-color: var(--white);
-        }
-
-        .depoi-grid {
+        .bonus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
             margin-top: 40px;
         }
 
-        .depoi-card {
-            background-color: var(--bg-card);
-            border: 1px solid rgba(184, 92, 75, 0.05);
+        .bonus-card {
+            background: var(--white);
             border-radius: var(--radius-md);
-            padding: 32px 28px;
+            padding: 36px 30px;
+            border: 1px solid rgba(54, 36, 36, 0.04);
             box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            position: relative;
+            transition: var(--transition);
         }
 
-        .stars {
-            color: #FFB500;
-            font-size: 14px;
-            margin-bottom: 16px;
+        .bonus-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
-        .depoi-text {
-            font-size: 14.5px;
-            line-height: 1.7;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 24px;
-        }
-
-        .depoi-footer {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-top: 1px solid rgba(184, 92, 75, 0.1);
-            padding-top: 16px;
-        }
-
-        .depoi-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, #8F5C77 100%);
-            color: var(--white);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            overflow: hidden;
-        }
-
-        .depoi-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .depoi-nome {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-title);
-        }
-
-        .depoi-tag {
-            font-size: 11px;
-            color: var(--text-light);
-            margin-top: 2px;
-        }
-
-        /* ── GARANTIA ── */
-        .sec-garantia {
-            background-color: var(--bg-alt);
-        }
-
-        .garantia-box {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .garantia-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .bonus-badge {
+            background: var(--green-success-bg);
+            color: var(--green-success);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 4px;
             display: inline-block;
+            margin-bottom: 12px;
         }
 
-        .garantia-box p {
-            font-size: 15.5px;
+        .bonus-title {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--text-title);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .bonus-desc {
+            font-size: 14.5px;
             color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        /* ── OFERTA SECTION (DARK ESPRESSO PREMIUM) ── */
+        .bonus-price-note {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── OFERTA FINAL & RECAP ── */
         .sec-oferta {
             background: linear-gradient(135deg, #241818 0%, #362424 100%);
             color: var(--white);
-            padding: 100px 0;
+            padding: 90px 0;
             position: relative;
             overflow: hidden;
         }
@@ -618,218 +647,100 @@
             pointer-events: none;
         }
 
-        .oferta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
+        .oferta-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .oferta-info h2 {
-            font-family: 'Raleway', sans-serif;
-            font-size: clamp(32px, 4.5vw, 44px);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-
-        .oferta-info h2 em {
-            font-style: italic;
-            color: #FFB3A6;
-        }
-
-        /* ── THE DETAILED CHECKOUT CARD ── */
-        .offer-card {
+        .oferta-card {
             background-color: var(--white);
-            border-radius: 36px;
+            border-radius: var(--radius-lg);
             padding: 44px 36px;
             color: var(--text-main);
-            box-shadow: 0 24px 64px rgba(18, 13, 22, 0.15);
-            max-width: 440px;
-            margin-left: auto;
+            box-shadow: var(--shadow-lg);
             position: relative;
         }
 
-        .offer-card::before {
+        .oferta-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, var(--primary) 0%, #FFB3A6 100%);
-            border-radius: 36px 36px 0 0;
+            height: 6px;
+            background: var(--primary);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         }
 
-        .badge-offer {
-            display: inline-block;
-            background-color: var(--bg-card);
-            color: var(--primary);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 6px 16px;
-            border-radius: 50px;
+        .recap-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-title);
             margin-bottom: 20px;
         }
 
-        .offer-card-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: 30px;
-            font-weight: 800;
-            color: var(--text-title);
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
-
-        .offer-checklist {
+        .recap-list {
             list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 32px;
-            border-bottom: 1px solid var(--bg-alt);
-            padding-bottom: 28px;
+            gap: 12px;
         }
 
-        .offer-checklist-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .recap-item {
             font-size: 14.5px;
             color: var(--text-muted);
-            font-weight: 500;
-            background-color: var(--bg-main);
-            border: 1px solid rgba(184, 92, 75, 0.05);
-            padding: 12px 16px;
-            border-radius: 12px;
-            transition: var(--transition);
-            text-align: left;
-            line-height: 1.4;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(54, 36, 36, 0.1);
+            padding-bottom: 8px;
         }
 
-        .offer-checklist-item:hover {
-            transform: translateY(-1px);
-            background-color: var(--bg-card);
-            border-color: rgba(184, 92, 75, 0.1);
-            box-shadow: 0 4px 12px rgba(184, 92, 75, 0.02);
+        .recap-item span.item-name {
+            font-weight: 600;
         }
 
-        .offer-checklist-item.item-whatsapp {
-            background-color: #EBFBF3;
-            border-color: rgba(59, 107, 76, 0.15);
-        }
-
-        .offer-checklist-item.item-whatsapp span {
-            color: var(--green-success);
+        .recap-item span.item-val {
             font-weight: 700;
-        }
-
-        .offer-checklist-item.item-whatsapp:hover {
-            background-color: #E3FAF0;
-            border-color: rgba(59, 107, 76, 0.25);
-            box-shadow: 0 4px 12px rgba(59, 107, 76, 0.05);
-        }
-
-        .badge-bonus {
-            color: var(--green-success);
-            background-color: var(--green-success-bg);
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-right: 6px;
-            display: inline-block;
-            vertical-align: middle;
-            letter-spacing: 0.5px;
-        }
-
-        .offer-checklist-item svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        .price-container {
-            text-align: center;
-            margin-bottom: 28px;
-        }
-
-        .price-de {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13.5px;
-            color: var(--text-light);
-            text-decoration: line-through;
-            margin-bottom: 4px;
-            font-weight: 700;
-        }
-
-        .price-anchor {
-            font-size: 13px;
             color: var(--primary);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .price-por {
+        .price-final {
+            margin-bottom: 24px;
+        }
+
+        .price-final .val-de {
+            font-size: 14px;
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .price-final .val-por {
             font-family: 'Montserrat', sans-serif;
             font-size: 64px;
             font-weight: 800;
             color: var(--green-success);
             line-height: 1;
-            margin-bottom: 8px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
             letter-spacing: -1.5px;
         }
 
-        .price-symbol {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 26px;
+        .price-final .val-por span.symbol {
+            font-size: 24px;
             font-weight: 800;
             margin-top: 8px;
             margin-right: 4px;
-            position: relative;
-            display: inline-flex;
-            align-items: center;
         }
 
-        .cifrao {
-            position: relative;
-            display: inline-block;
-            padding: 0 1px;
-        }
-
-        .cifrao::before,
-        .cifrao::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            bottom: -2px;
-            width: 1.5px;
-            background-color: currentColor;
-        }
-
-        .cifrao::before {
-            left: 42%;
-        }
-
-        .cifrao::after {
-            left: 58%;
-        }
-
-        .price-subtext {
-            font-size: 13px;
-            color: var(--text-light);
-            font-weight: 500;
-            margin-top: 4px;
-        }
-
-        .btn-checkout-card {
+        .btn-checkout-final {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -839,59 +750,150 @@
             font-family: 'Raleway', sans-serif;
             font-weight: 700;
             font-size: 16px;
-            padding: 16px 20px;
+            padding: 18px 24px;
             border-radius: 50px;
             text-decoration: none;
             border: 4px solid #C4E8D1;
-            box-shadow: 0 8px 24px rgba(59, 107, 76, 0.25);
+            box-shadow: 0 8px 24px rgba(59, 107, 76, 0.2);
             transition: var(--transition);
             margin-bottom: 16px;
-            letter-spacing: -0.2px;
         }
 
-        .btn-checkout-card:hover {
+        .btn-checkout-final:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(59, 107, 76, 0.4);
-            background-color: #2D563A;
+            box-shadow: 0 12px 32px rgba(59, 107, 76, 0.35);
+            background-color: #24B16A;
             border-color: #D3F2DD;
         }
 
-        .security-badge-footer {
+        .oferta-footer-note {
             font-size: 12px;
             color: var(--text-light);
-            text-align: center;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            font-weight: 500;
         }
 
-        .security-badge-footer svg {
-            width: 13px;
-            height: 13px;
+        .oferta-footer-note svg {
+            width: 14px;
+            height: 14px;
             fill: #FFB500;
         }
 
-        .whatsapp-badge-footer {
-            font-size: 13px;
-            color: var(--green-success);
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
+        /* ── SEÇÃO RESUMINDO & GARANTIA ── */
+        .sec-resumindo {
+            background-color: var(--white);
+        }
+
+        .resumindo-subtitle {
+            font-size: 18px;
             font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .resumindo-list {
+            list-style: none;
+            max-width: 720px;
+            margin: 0 auto 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .resumindo-item {
+            font-size: 15px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+
+        .resumindo-icon {
+            font-size: 16px;
+            color: var(--red-alert);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .garantia-box {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            border: 1px solid rgba(184, 92, 75, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .garantia-badge-icon {
+            font-size: 44px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .garantia-box h4 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-title);
             margin-bottom: 12px;
         }
 
-        .whatsapp-badge-footer svg {
-            width: 15px;
-            height: 15px;
-            fill: var(--green-success);
+        .garantia-box p {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* ── FAQ STYLES ── */
+        /* ── SEÇÃO APRESENTAÇÃO DOULA ── */
+        .sec-doula {
+            background-color: var(--bg-main);
+            border-top: 1px solid rgba(54, 36, 36, 0.05);
+        }
+
+        .doula-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .doula-img-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .doula-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .doula-text-main {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: var(--text-title);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            max-width: 500px;
+        }
+
+        .doula-text-sub {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── FAQ ACCORDION ── */
         .sec-faq {
             background-color: var(--white);
         }
@@ -949,6 +951,63 @@
             transform: rotate(45deg);
         }
 
+        /* ── TOAST PURCHASES ── */
+        .toast-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 8px;
+            padding: 10px 16px;
+            box-shadow: 0 8px 30px rgba(54, 36, 36, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 9999;
+            transform: translateY(120%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+            opacity: 0;
+            max-width: 320px;
+            border-left: 4px solid var(--green-success);
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            width: 26px;
+            height: 26px;
+            background: #D1EAD7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-success);
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .toast-content {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .toast-content strong {
+            color: var(--text-title);
+            font-weight: 700;
+        }
+
+        .toast-time {
+            display: block;
+            font-size: 10.5px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
         /* ── FOOTER ── */
         .site-footer {
             background-color: #241818;
@@ -988,301 +1047,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* ── RESPONSIVIDADE ── */
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero {
-                text-align: center;
-                padding: 48px 0 60px;
-            }
-
-            .hero-cta-group {
-                align-items: center;
-                width: 100%;
-            }
-
-            .btn-main-cta {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .oferta-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-                text-align: center;
-            }
-
-            .offer-card {
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .comparison-row {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .comparison-row {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 8px !important;
-            }
-            .comparison-card {
-                padding: 12px 8px !important;
-                border-radius: 8px !important;
-            }
-            .comparison-badge {
-                font-size: 9px !important;
-                letter-spacing: 0.5px !important;
-                margin-bottom: 6px !important;
-            }
-            .comparison-title {
-                font-size: 12px !important;
-                margin-bottom: 4px !important;
-                line-height: 1.2 !important;
-            }
-            .comparison-desc {
-                font-size: 10.5px !important;
-                line-height: 1.35 !important;
-            }
-            .comparison-desc strong {
-                font-weight: 700 !important;
-            }
-            .hero {
-                padding: 40px 0 50px;
-            }
-            .hero h1 {
-                font-size: clamp(27px, 8vw, 33px) !important;
-                line-height: 1.15 !important;
-                margin-bottom: 20px;
-            }
-            .hero-video-container {
-                margin-bottom: 20px;
-            }
-            .hero-sub {
-                font-size: 13.5px;
-                margin-bottom: 28px;
-                padding: 0 8px;
-            }
-            .hero-mockup {
-                max-width: 100%;
-            }
-            .btn-main-cta {
-                font-size: 13.5px !important;
-                padding: 14px 16px !important;
-            }
-            .btn-checkout-card {
-                font-size: 14.5px !important;
-                padding: 14px 16px !important;
-                border-width: 3px !important;
-            }
-            .sec-oferta {
-                padding: 60px 0;
-            }
-            .oferta-grid {
-                gap: 32px;
-            }
-            .offer-card {
-                padding: 24px 16px;
-                border-radius: 24px;
-                max-width: 100%;
-            }
-            .offer-checklist {
-                gap: 8px;
-                margin-bottom: 24px;
-                padding-bottom: 20px;
-            }
-            .offer-checklist-item {
-                font-size: 13px;
-                padding: 10px 12px;
-                gap: 8px;
-            }
-            .price-container {
-                margin-bottom: 20px;
-            }
-            .price-por {
-                font-size: 52px;
-            }
-        }
-
-        /* divisoria button container styles */
-        .divisoria-button-container {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, 50%);
-            z-index: 100;
-            text-align: center;
-            width: 100%;
-            padding: 0 24px;
-        }
-
-        .divisoria-button-container .btn-main-cta {
-            max-width: 400px;
-            width: 100%;
-        }
-
-        /* ── PERFORMANCE OPTIMIZATIONS ── */
-        .sec-dor, .sec-concept, .sec-paraquem, .sec-depoi, .sec-oferta, .sec-faq {
-            content-visibility: auto;
-            contain-intrinsic-size: 600px;
-        }
-
-        /* ── PURCHASE NOTIFICATION POPUP ── */
-        .purchase-notification {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(253, 245, 242, 0.95);
-            border: 1px solid rgba(226, 88, 62, 0.2);
-            border-radius: 12px;
-            padding: 8px 12px;
-            box-shadow: 0 8px 30px rgba(54, 36, 36, 0.12);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 9999;
-            transform: translateY(120%);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
-            opacity: 0;
-            max-width: 270px;
-            backdrop-filter: blur(10px);
-            pointer-events: auto;
-        }
-
-        .purchase-notification.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .purchase-notification .notification-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #2DC275;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .purchase-notification .notification-content {
-            font-size: 11.5px;
-            color: #362424;
-            line-height: 1.35;
-            font-weight: 500;
-        }
-
-        .purchase-notification .notification-content strong {
-            color: #241818;
-            font-weight: 700;
-        }
-
-        .purchase-notification .notification-time {
-            display: block;
-            font-size: 9.5px;
-            color: #E2583E;
-            margin-top: 1px;
-            font-weight: 600;
-        }
-
-        .purchase-notification .notification-close {
-            background: none;
-            border: none;
-            color: #362424;
-            font-size: 14px;
-            cursor: pointer;
-            opacity: 0.5;
-            padding: 0;
-            margin-left: 4px;
-            align-self: flex-start;
-            line-height: 1;
-            transition: opacity 0.2s ease;
-        }
-
-        .purchase-notification .notification-close:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 480px) {
-            .purchase-notification {
-                left: 16px;
-                right: auto;
-                transform: translateY(120%);
-                bottom: 16px;
-                max-width: 250px;
-                width: calc(100% - 32px);
-                box-sizing: border-box;
-            }
-
-            .purchase-notification.show {
-                transform: translateY(0);
-            }
-        }
-
-        /* ── SEÇÃO APRESENTAÇÃO DOULA ── */
-        .sec-doula {
-            background: #FAF8F5;
-            text-align: center;
-            padding: 60px 0 20px 0;
-        }
-
-        .doula-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .doula-img-wrapper {
-            margin-bottom: 20px;
-        }
-
-        .doula-img-placeholder {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: #F3EDE4;
-            border: 2px solid rgba(226, 88, 62, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #E2583E;
-            overflow: hidden;
-        }
-
-        .doula-img-placeholder svg {
-            width: 44px;
-            height: 44px;
-            opacity: 0.7;
-        }
-
-        .doula-text-main {
-            font-size: 15px;
-            font-weight: 700;
-            color: #241818;
-            line-height: 1.5;
-            margin-bottom: 12px;
-            max-width: 500px;
-        }
-
-        .doula-text-sub {
-            font-size: 13px;
-            font-weight: 500;
-            color: #362424;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
     </style>
     
     <script
@@ -1303,345 +1067,360 @@
 </head>
 <body>
 
-    <!-- BARRA DE ANÚNCIO -->
+    <!-- BARRA DE ANÚNCIO DINÂMICA -->
     <div class="announcement-bar">
-        🎉 OFERTA LIMITADA SOMENTE HOJE
+        🔥 VÁLIDO HOJE: <span id="current-date">CARREGANDO...</span>! 🔥
     </div>
 
-
+    <!-- TIMER DE ESCASSEZ -->
+    <div class="scarcity-bar">
+        A oferta especial termina em: <span class="time-badge" id="countdown">15:00</span> minutos
+    </div>
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="container hero-grid">
+        <div class="container hero-content">
+            <span class="hero-eyebrow">Técnicas de respiração para um parto (quase) sem dor!</span>
+            <h1>
+                Ative a Conexão <em>Mandíbula-Pelve</em> e reduza em até <em>87% o uso de analgesia</em> no parto.
+            </h1>
             
-            <div class="hero-content">
-                <h1>
-                    Ative a Conexão <strong>Mandíbula-Pelve</strong> e reduza em até <em>87% o uso de analgesia</em> no parto.
-                </h1>
-                <div class="hero-video-container">
-                    <img src="mockup.jpg" alt="Método Parto com Confiança" class="hero-mockup" loading="eager" width="1024" height="768">
-                </div>
-                <p class="hero-sub">
-                    Aprenda a controlar o medo e a reduzir a dor do parto sem precisar de analgesia, praticando apenas 10 minutos por dia com técnicas simples de respiração pélvica.
-                </p>
-
-                <div class="hero-cta-group">
-                    <a href="#card-oferta" class="btn-main-cta">
-                        QUERO ACESSAR AGORA
-                    </a>
-
-                    
-                </div>
+            <div class="hero-video-container">
+                <img src="mockup.jpg" alt="Método Parto com Confiança" class="hero-mockup" loading="eager" width="1024" height="768">
             </div>
 
+            <div class="hero-product-tag">CURSO MÉTODO PARTO COM CONFIANÇA</div>
+
+            <div class="hero-price">
+                De <s>R$ 197</s> por apenas <strong>R$ 27,90</strong>
+            </div>
+
+            <a href="https://pay.wiapy.com/cnRHdlhFGk" class="btn-main-cta">
+                QUERO MEU ACESSO IMEDIATO
+            </a>
+
+            <div>
+                <img src="https://escoladoparto.com.br/wp-content/uploads/2025/02/1-comprasegura-copiar.webp" alt="Compra 100% Segura" class="hero-badge-img" width="280">
+            </div>
         </div>
     </section>
 
-    <!-- SEÇÃO DOR -->
-    <section class="sec-dor section-padding">
+    <!-- SEÇÃO INTRODUÇÃO (A TRANSFORMAÇÃO) -->
+    <section class="sec-intro section-padding">
         <div class="container">
-            <span class="section-label">O Caminho Tradicional vs. O Método</span>
-            <h2 class="section-title">A Dor do Parto Sem Técnica vs. <em>A Respiração Pélvica</em></h2>
-            <p class="section-desc">Você já leu e viu de tudo sobre o parto. Agora entenda a diferença prática entre travar pelo pânico e conduzir o seu corpo com a técnica certa.</p>
+            <h2 class="section-title">Como controlar o medo e reduzir a dor do parto normal praticando apenas <em>10 minutos por dia</em>.</h2>
+            
+            <div class="intro-text-block">
+                <p><strong>Imagine passar pelo trabalho de parto sem pânico, mantendo o controle corporal e emocional... apesar da dor?</strong></p>
+                <p>Infelizmente, a maioria das histórias de parto normal foca em dores insuportáveis, gritos, medo e total exaustão. Mas você sabia que a dor intensa muitas vezes é amplificada pela nossa reação involuntária de tensão e bloqueio?</p>
+                <p>O maior obstáculo para a descida do bebê não é a falta de passagem, mas sim o medo que faz você travar o colo do útero e prender a respiração. Ao contrair o maxilar e tensionar a boca, você envia um sinal neurológico direto que fecha a pelve.</p>
+                <p><strong>Mas não precisa ser assim!</strong></p>
+                <p>Existe um segredo neurológico simples: o <em>Reflexo Esfincteriano Inverso</em>. Quando você aprende a relaxar a mandíbula e a aplicar a respiração pélvica de forma correta, o períneo se abre naturalmente, facilitando a dilatação e tornando as contrações muito mais toleráveis.</p>
+                <p>E é exatamente esse método prático de respiração e relaxamento que você vai dominar no <strong>Método Parto com Confiança</strong>.</p>
+            </div>
+
+            <div class="rating-badge">
+                Avaliação Geral: <span class="rating-stars">★★★★★</span> 4.89 / 5.0 baseada em alunas
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO O QUE VOCÊ VAI APRENDER -->
+    <section class="sec-learn section-padding">
+        <div class="container">
+            <span class="section-label">Conteúdo</span>
+            <h2 class="section-title">O que você vai aprender <em>neste curso</em></h2>
+            <p class="section-desc">Técnicas diretas para treinar na gestação e automatizar durante o trabalho de parto.</p>
+
+            <ul class="learn-list">
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text"><strong>Método simples</strong> que reduz cientificamente em até 87% o uso de analgesia química no parto;</div>
+                </li>
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text">Como <strong>evitar os erros comuns</strong> (como gritar e prender o ar) que intensificam a dor e cansam o bebê;</div>
+                </li>
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text"><strong>Técnicas específicas</strong> de respiração para cada momento (fase ativa, transição e expulsivo);</div>
+                </li>
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text">Como <strong>vencer o medo</strong> compreendendo a verdadeira fisiologia da dor no parto normal;</div>
+                </li>
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text">Como <strong>identificar as fases do parto</strong> e saber exatamente como agir em cada uma delas;</div>
+                </li>
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text">Como <strong>facilitar a dilatação natural</strong> da pelve, contribuindo para um parto mais rápido;</div>
+                </li>
+                <li class="learn-item">
+                    <svg class="learn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="learn-text">Entender que <strong>dor é diferente de sofrimento</strong> e como é possível parir com calma e segurança.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SEÇÃO METAS -->
+    <section class="sec-goals section-padding">
+        <div class="container">
+            <span class="section-label">Direcionamento</span>
+            <h2 class="section-title">Ao concluir este material você vai <em>conseguir</em></h2>
+            
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <span class="goal-num">Meta 01</span>
+                    <h3 class="goal-title">Entender a dor e vencer o medo</h3>
+                    <p class="goal-desc">Ao reprogramar sua mente sobre a contração, você elimina a adrenalina do medo, estimulando a ocitocina e a endorfina natural.</p>
+                </div>
+                <div class="goal-card">
+                    <span class="goal-num">Meta 02</span>
+                    <h3 class="goal-title">Agir certo em cada fase</h3>
+                    <p class="goal-desc">Saber diferenciar a fase de latência, ativa e transição, sabendo o momento exato de ir para a maternidade com segurança.</p>
+                </div>
+                <div class="goal-card">
+                    <span class="goal-num">Meta 03</span>
+                    <h3 class="goal-title">Aplicar as respirações corretas</h3>
+                    <p class="goal-desc">Ter dominado os sopros e reflexos de soltura pélvica para oxigenar o bebê e reduzir as dores das contrações de forma ativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO COMPARATIVA: SEM VS COM -->
+    <section class="sec-comparison section-padding">
+        <div class="container">
+            <span class="section-label">Comparativo</span>
+            <h2 class="section-title">Não é sorte. É <em>preparo</em>... A próxima será você?</h2>
+            <p class="section-desc">Entenda a diferença real entre passar pelo parto sem rumo e vivenciar o nascimento com técnicas testadas.</p>
             
             <div class="comparison-grid">
-                
-                <!-- Comparação 1 -->
                 <div class="comparison-row">
                     <div class="comparison-card card-pain">
-                        <span class="comparison-badge">Tradicional</span>
+                        <span class="comparison-badge">Sem o Método</span>
                         <h4 class="comparison-title">O Pânico da Contração</h4>
-                        <p class="comparison-desc">A contração vem, o medo ativa o desespero e você <strong>trava o corpo inteiro</strong> de dor. O colo do útero se fecha e a dilatação trava.</p>
+                        <p class="comparison-desc">Você entra em pânico, <strong>trava o maxilar e fecha o períneo</strong>, travando a dilatação natural.</p>
                     </div>
                     <div class="comparison-card card-solution">
-                        <span class="comparison-badge">O Método</span>
-                        <h4 class="comparison-title">A Soltura Pélvica</h4>
-                        <p class="comparison-desc">Você aprende a manter a calma e <strong>se entregar às contrações</strong>. A pelve responde relaxando, facilitando a dilatação natural.</p>
+                        <span class="comparison-badge">Com o Método</span>
+                        <h4 class="comparison-title">Controle Ativo</h4>
+                        <p class="comparison-desc">Você <strong>mantém a calma</strong>, relaxa a mandíbula e se entrega às contrações com segurança.</p>
                     </div>
                 </div>
-
-                <!-- Comparação 2 -->
                 <div class="comparison-row">
                     <div class="comparison-card card-pain">
-                        <span class="comparison-badge">Tradicional</span>
-                        <h4 class="comparison-title">Prender o Ar</h4>
-                        <p class="comparison-desc">Você <strong>respira de forma irregular</strong> ou prende a respiração na dor. Isso reduz a oxigenação do bebê e acelera a exaustão física.</p>
+                        <span class="comparison-badge">Sem o Método</span>
+                        <h4 class="comparison-title">Apneia na Dor</h4>
+                        <p class="comparison-desc">Você prende a respiração e <strong>reduz a oxigenação do bebê</strong>, acelerando a exaustão física.</p>
                     </div>
                     <div class="comparison-card card-solution">
-                        <span class="comparison-badge">O Método</span>
-                        <h4 class="comparison-title">A Anestesia Natural</h4>
-                        <p class="comparison-desc">Você <strong>respira corretamente em cada fase</strong>, mantendo o controle corporal e estimulando a liberação de endorfinas analgésicas.</p>
+                        <span class="comparison-badge">Com o Método</span>
+                        <h4 class="comparison-title">Sopro Direcionado</h4>
+                        <p class="comparison-desc">Você <strong>respira corretamente em cada fase</strong>, mantendo o controle e a oxigenação do bebê.</p>
                     </div>
                 </div>
-
-                <!-- Comparação 3 -->
                 <div class="comparison-row">
                     <div class="comparison-card card-pain">
-                        <span class="comparison-badge">Tradicional</span>
-                        <h4 class="comparison-title">Força que Rasga</h4>
-                        <p class="comparison-desc">Você perde o controle emocional e <strong>faz força em apneia (força travada)</strong>, gerando uma pressão que aumenta a dor e rasga o períneo.</p>
+                        <span class="comparison-badge">Sem o Método</span>
+                        <h4 class="comparison-title">Força Travada</h4>
+                        <p class="comparison-desc">Você faz força no rosto (apneia), gerando uma <strong>tensão violenta que rasga o períneo</strong>.</p>
                     </div>
                     <div class="comparison-card card-solution">
-                        <span class="comparison-badge">O Método</span>
-                        <h4 class="comparison-title">O Sopro Protetor</h4>
-                        <p class="comparison-desc">Você chega ao expulsivo <strong>preparada e confiante</strong>, usando o sopro pélvico para guiar o bebê sem esforço desesperado.</p>
+                        <span class="comparison-badge">Com o Método</span>
+                        <h4 class="comparison-title">Sopro Pélvico</h4>
+                        <p class="comparison-desc">Você usa o sopro vocalizado grave e o <strong>puxo fisiológico direcionado</strong> para o bebê descer sem rasgar.</p>
                     </div>
                 </div>
-
-                <!-- Comparação 4 -->
-                <div class="comparison-row">
-                    <div class="comparison-card card-pain">
-                        <span class="comparison-badge">Tradicional</span>
-                        <h4 class="comparison-title">Parceiro Travado</h4>
-                        <p class="comparison-desc">O acompanhante entra na sala sem preparo, entra em pânico com a sua dor e <strong>paralisa sem saber o que fazer</strong>.</p>
-                    </div>
-                    <div class="comparison-card card-solution">
-                        <span class="comparison-badge">O Método</span>
-                        <h4 class="comparison-title">Suporte Ativo</h4>
-                        <p class="comparison-desc">O parceiro aprende <strong>massagens sacrais e técnicas de contrapressão</strong> para ser um apoio de verdade.</p>
-                    </div>
-                </div>
-
-                <!-- Comparação 5 -->
-                <div class="comparison-row">
-                    <div class="comparison-card card-pain">
-                        <span class="comparison-badge">Tradicional</span>
-                        <h4 class="comparison-title">Aulas Teóricas</h4>
-                        <p class="comparison-desc">Cursos tradicionais focam em slides e teoria. Na hora da dor intensa, <strong>você esquece tudo</strong> porque não treinou o corpo.</p>
-                    </div>
-                    <div class="comparison-card card-solution">
-                        <span class="comparison-badge">O Método</span>
-                        <h4 class="comparison-title">Treino Prático</h4>
-                        <p class="comparison-desc">Treinos rápidos de <strong>5 minutos na gestação</strong> para automatizar a respiração por puro reflexo treinado.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
-    
-    <!-- SEÇÃO VIRADA -->
-    <section class="sec-concept section-padding">
+
+    <!-- SEÇÃO CONTEÚDO (MÓDULOS) -->
+    <section class="sec-modules section-padding">
         <div class="container">
-            <span class="section-label">Por Que Funciona</span>
-            <blockquote class="concept-quote">
-                "Por que relaxar a sua boca é o segredo neurológico para proteger o seu períneo contra rasgos e episiotomia?"
-            </blockquote>
-            <div class="concept-body">
-                <p>
-                    A maioria dos cursos foca em exercícios de fortalecimento (como Kegel), mas na hora da dor, a tensão do medo trava o útero. O segredo contra a laceração está no <strong>Reflexo Esfincteriano Inverso</strong>: existe um link neurológico direto entre a mandíbula e o períneo. Ao trancar a boca ou prender o ar, a pelve se contrai e trava a descida do bebê. Quando você relaxa o maxilar e solta o sopro pélvico (Método DMP), a musculatura lá embaixo se abre reflexivamente, guiando o nascimento de forma suave e protegendo o seu períneo contra rasgos.
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SEÇÃO TÉCNICAS -->
-    <section class="sec-tecnicas section-padding" style="position: relative;">
-        <div class="container">
-            <span class="section-label">O que você vai aprender</span>
-            <h2 class="section-title">O que você vai encontrar no <em>Método</em></h2>
-            <p class="section-desc">Estrutura prática de aulas desenvolvida para você treinar na gestação e usar no parto.</p>
-
-            <div class="tecnicas-grid">
-                
-                <div class="tecnica-card">
-                    <div class="tecnica-num">Módulo 01</div>
-                    <h3 class="tecnica-title">Fatos Ocultos sobre a Dor</h3>
-                    <p class="tecnica-desc">Entenda a fisiologia da dor no parto normal para vencer o medo e usar a conexão reflexiva entre a mandíbula e a pelve a seu favor.</p>
-                    <span class="tecnica-tag">Módulo 1</span>
-                </div>
-
-                <div class="tecnica-card">
-                    <div class="tecnica-num">Módulo 02</div>
-                    <h3 class="tecnica-title">Respiração para Dilatação</h3>
-                    <p class="tecnica-desc">Aprenda as técnicas de respiração específicas para a fase ativa e transição (1 a 10cm), mantendo a oxigenação e o alívio natural.</p>
-                    <span class="tecnica-tag">Módulo 2</span>
-                </div>
-
-                <div class="tecnica-card">
-                    <div class="tecnica-num">Módulo 03</div>
-                    <h3 class="tecnica-title">O Sopro Vocalizado</h3>
-                    <p class="tecnica-desc">Aprenda a emitir sons graves e respirações profundas que relaxam a musculatura do períneo durante a fase de transição.</p>
-                    <span class="tecnica-tag">Módulo 3</span>
-                </div>
-
-                <div class="tecnica-card">
-                    <div class="tecnica-num">Módulo 04</div>
-                    <h3 class="tecnica-title">Puxo Soprado e Expulsivo</h3>
-                    <p class="tecnica-desc">Evite a força em apneia (força travada). O puxo soprado guia a descida do bebê com a gravidade, protegendo o períneo contra lacerações.</p>
-                    <span class="tecnica-tag">Módulo 4</span>
-                </div>
-
-                <div class="tecnica-card">
-                    <div class="tecnica-num">Bônus Casal</div>
-                    <h3 class="tecnica-title">Treinamento do Acompanhante</h3>
-                    <p class="tecnica-desc">Aulas práticas para o parceiro/marido saber exatamente onde massagear (sacro e lombar), como conduzir a respiração com você e dar suporte físico ativo.</p>
-                    <span class="tecnica-tag">Para o casal</span>
-                </div>
-
-            </div>
-
-        </div>
-        <div class="divisoria-button-container">
-            <a href="#card-oferta" class="btn-main-cta">
-                Acessar as aulas e começar hoje →
-            </a>
-        </div>
-    </section>
-
-        <!-- SEÇÃO DEPOIMENTOS -->
-    
-    
-    <section class="sec-depoi section-padding">
-        <div class="container">
-            <span class="section-label">Quem já usou</span>
-            <h2 class="section-title">O que elas estão <em>dizendo</em></h2>
+            <span class="section-label">Estrutura</span>
+            <h2 class="section-title">O que você vai encontrar <em>neste conteúdo</em></h2>
             
-            <div class="depoi-grid">
-                
-                <div class="depoi-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <p class="depoi-texto">"Eu tinha muito medo das contrações. Pratiquei a respiração Flor e Vela toda semana e quando chegou a hora, meu corpo já sabia o que fazer. Dilatei de 4 para 10 cm em menos de 3 horas. A enfermeira ficou surpresa."</p>
-                    </div>
-                    <div class="depoi-footer">
-                        <div class="depoi-avatar"><img src="depoimento1.png" alt="Ana Paula M." loading="lazy" width="40" height="40"></div>
-                        <div>
-                            <div class="depoi-nome">Ana Paula M.</div>
-                            <div class="depoi-tag">Parto normal sem intercorrências</div>
-                        </div>
-                    </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <span class="module-num">Módulo 1</span>
+                    <span class="module-lesson-title">Aula Prática</span>
+                    <h3 class="module-title">Fatos Ocultos sobre a Dor</h3>
+                    <p class="module-desc">Entenda a verdadeira fisiologia da dor no parto normal para vencer o medo, acalmar o sistema nervoso e usar os hormônios naturais a seu favor.</p>
                 </div>
-
-                <div class="depoi-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <p class="depoi-texto">"O módulo do acompanhante foi o que mais me ajudou. Meu marido sabia exatamente onde massagear e como me lembrar de respirar. Em vez de travar, ele foi meu maior apoio lá dentro."</p>
-                    </div>
-                    <div class="depoi-footer">
-                        <div class="depoi-avatar"><img src="depoimento2.png" alt="Camila R." loading="lazy" width="40" height="40"></div>
-                        <div>
-                            <div class="depoi-nome">Camila R.</div>
-                            <div class="depoi-tag">Começou com 32 semanas, parto normal</div>
-                        </div>
-                    </div>
+                <div class="module-card">
+                    <span class="module-num">Módulo 2</span>
+                    <span class="module-lesson-title">Aula Prática</span>
+                    <h3 class="module-title">Fases do Parto e Momento Certo</h3>
+                    <p class="module-desc">Como identificar a fase latente, ativa e a transição. Aprenda a ler as sensações do corpo e saber o momento ideal de ir para o hospital.</p>
                 </div>
-
-                <div class="depoi-card">
-                    <div>
-                        <div class="stars">★★★★★</div>
-                        <p class="depoi-texto">"Fiz o pré-natal pelo SUS e não tinha acesso a doula. Esse método foi literalmente o único lugar onde aprendi técnica de verdade. Não tive episiotomia nem laceração. Não acredito até hoje."</p>
-                    </div>
-                    <div class="depoi-footer">
-                        <div class="depoi-avatar"><img src="depoimento3.png" alt="Juliana F." loading="lazy" width="40" height="40"></div>
-                        <div>
-                            <div class="depoi-nome">Juliana F.</div>
-                            <div class="depoi-tag">Hospital Público (SUS), parto normal</div>
-                        </div>
-                    </div>
+                <div class="module-card">
+                    <span class="module-num">Módulo 3</span>
+                    <span class="module-lesson-title">Aula Prática</span>
+                    <h3 class="module-title">Técnicas de Respiração</h3>
+                    <p class="module-desc">Técnicas passo a passo: a respiração de oxigenação (Flor e Vela), o Sopro Vocalizado Grave para transição e o Puxo Fisiológico Soprado para o expulsivo.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO APRESENTAÇÃO DOULA -->
-    <section class="sec-doula">
-        <div class="container-narrow">
-            <div class="doula-profile">
-                <div class="doula-img-wrapper">
-                    <div class="doula-img-placeholder">
-                        <img src="imagem-bio.webp" alt="Roberta - Doula" width="100" height="100" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                    </div>
-                </div>
-                <p class="doula-text-main">
-                    Conheça Roberta, doula especialista em respiração estratégica para o parto normal.
-                </p>
-                <p class="doula-text-sub">
-                    Com mais de 527 mulheres ajudadas, Roberta desenvolveu o Método Parto com Confiança para ensinar gestantes a usarem a respiração da forma correta durante o trabalho de parto, ajudando no controle da dor, na condução do corpo e na hora de fazer força sem desespero.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO OFERTA / CARD DE CHECKOUT INTEGRADO -->
-    <section class="sec-oferta id-oferta" id="oferta">
-        <div class="container oferta-grid">
+    <!-- SEÇÃO BÔNUS -->
+    <section class="sec-bonus section-padding">
+        <div class="container">
+            <span class="section-label">Exclusivo</span>
+            <h2 class="section-title">Bônus especiais inclusos <em>gratuitamente</em></h2>
+            <p class="section-desc">Selecionamos bônus estratégicos para complementar perfeitamente a sua preparação.</p>
             
-            <div class="oferta-info">
-                <span class="hero-eyebrow">Acesso imediato</span>
-                <h2>Comece hoje.<br>O seu parto <em>agradece.</em></h2>
-            </div>
-
-            <!-- THE PREMIUM DETAILED CHECKOUT CARD -->
-            <div class="offer-card" id="card-oferta">
-                <span class="badge-offer">Oferta limitada</span>
-                <h3 class="offer-card-title">Método Parto com Confiança</h3>
-                
-                <div class="price-container">
-                    <div class="price-de">De R$ 97,00</div>
-                    <div class="price-anchor">Hoje por apenas</div>
-                    <div class="price-por">
-                        <span class="price-symbol">R<span class="cifrao">S</span></span>27,90
-                    </div>
-                    <div class="price-subtext">Pagamento único · acesso imediato</div>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <span class="bonus-badge">Bônus 1</span>
+                    <h3 class="bonus-title">Como Evitar a Laceração no Parto</h3>
+                    <p class="bonus-desc">Aula especial sobre a conexão Mandíbula-Pelve. Aprenda a soltar a garganta e a boca para abrir a pelve de forma reflexa no expulsivo.</p>
+                    <div class="bonus-price-note">De R$ 97,00 por R$ 0,00</div>
                 </div>
+                <div class="bonus-card">
+                    <span class="bonus-badge">Bônus 2</span>
+                    <h3 class="bonus-title">Guia de Bolso em PDF</h3>
+                    <p class="bonus-desc">Ebook complementar resumindo todas as técnicas de respiração e fases do parto para você ler e consultar rapidamente pelo celular.</p>
+                    <div class="bonus-price-note">De R$ 97,00 por R$ 0,00</div>
+                </div>
+                <div class="bonus-card">
+                    <span class="bonus-badge">Bônus 3</span>
+                    <h3 class="bonus-title">50 Afirmações para o Parto</h3>
+                    <p class="bonus-desc">Áudios e guia visual baseados na neurociência para reprogramar o medo, reduzir a ansiedade e manter a mente focada e calma na hora do parto.</p>
+                    <div class="bonus-price-note">De R$ 97,00 por R$ 0,00</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <ul class="offer-checklist">
-                    <li class="offer-checklist-item">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Vídeo aulas passo a passo</span>
+    <!-- DEPOIMENTOS REALISTAS -->
+    <section class="sec-depoi section-padding" style="background-color: var(--white); border-bottom: 1px solid rgba(54, 36, 36, 0.05);">
+        <div class="container">
+            <span class="section-label">Relatos</span>
+            <h2 class="section-title">O que nossas alunas <em>estão dizendo</em></h2>
+            
+            <div class="goals-grid">
+                <div class="goal-card" style="background-color: var(--bg-card);">
+                    <div style="color: #FFB500; font-size: 14px; margin-bottom: 12px;">★★★★★</div>
+                    <p style="font-size: 14.5px; font-style: italic; color: var(--text-muted); margin-bottom: 20px;">"Eu morria de medo das contrações. Pratiquei as respirações toda semana e, na hora do parto, meu corpo sabia exatamente o que fazer. Minha dilatação de 4 para 10cm foi muito rápida!"</p>
+                    <strong style="font-size: 13px; color: var(--text-title);">Ana Paula M.</strong>
+                </div>
+                <div class="goal-card" style="background-color: var(--bg-card);">
+                    <div style="color: #FFB500; font-size: 14px; margin-bottom: 12px;">★★★★★</div>
+                    <p style="font-size: 14.5px; font-style: italic; color: var(--text-muted); margin-bottom: 20px;">"O módulo da preparação pélvica e soltura mandibular salvou meu expulsivo. Meu marido sabia como me lembrar de soltar a boca. Não tive nenhuma laceração ou rasgo."</p>
+                    <strong style="font-size: 13px; color: var(--text-title);">Camila R.</strong>
+                </div>
+                <div class="goal-card" style="background-color: var(--bg-card);">
+                    <div style="color: #FFB500; font-size: 14px; margin-bottom: 12px;">★★★★★</div>
+                    <p style="font-size: 14.5px; font-style: italic; color: var(--text-muted); margin-bottom: 20px;">"Tive meu bebê pelo SUS e esse curso foi o melhor investimento que fiz. As aulas são curtas e práticas, direto ao ponto. Consegui parir de forma natural e muito tranquila."</p>
+                    <strong style="font-size: 13px; color: var(--text-title);">Juliana F.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA FINAL & CARD DE CHECKOUT -->
+    <section class="sec-oferta" id="oferta">
+        <div class="oferta-container container">
+            
+            <div class="oferta-card">
+                <span class="bonus-badge" style="background-color: var(--bg-card); color: var(--primary);">Oferta Exclusiva</span>
+                <h3 class="recap-title">Método Parto com Confiança</h3>
+                
+                <ul class="recap-list">
+                    <li class="recap-item">
+                        <span class="item-name">Curso Completo Método Parto com Confiança</span>
+                        <span class="item-val">R$ 297,00</span>
                     </li>
-                    <li class="offer-checklist-item">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Técnicas para cada fase do trabalho de parto</span>
+                    <li class="recap-item">
+                        <span class="item-name">Bônus 1: Aula Como Evitar Laceração</span>
+                        <span class="item-val">GRÁTIS</span>
                     </li>
-                    <li class="offer-checklist-item">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span><span class="badge-bonus">Bônus</span> Treinamento do acompanhante</span>
+                    <li class="recap-item">
+                        <span class="item-name">Bônus 2: Ebook Guia de Bolso (PDF)</span>
+                        <span class="item-val">GRÁTIS</span>
                     </li>
-                    <li class="offer-checklist-item">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span><span class="badge-bonus">Bônus</span> Guia rápido de bolso em PDF</span>
+                    <li class="recap-item">
+                        <span class="item-name">Bônus 3: 50 Frases de Afirmação</span>
+                        <span class="item-val">GRÁTIS</span>
                     </li>
-                    <li class="offer-checklist-item">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span><span class="badge-bonus">Bônus</span> GravidaFort - App</span>
-                    </li>
-                    <li class="offer-checklist-item">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Acesso vitalício pelo celular</span>
-                    </li>
-                    <li class="offer-checklist-item item-whatsapp">
-                        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2DC275"/><path d="M6 12l4 4 8-8" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Envio imediato pelo WhatsApp</span>
+                    <li class="recap-item">
+                        <span class="item-name">Acesso vitalício pelo celular</span>
+                        <span class="item-val">INCLUSO</span>
                     </li>
                 </ul>
 
-                <!-- Kiwify checkout link -->
-                <a href="https://pay.wiapy.com/cnRHdlhFGk" class="btn-checkout-card">
-                    Garantir meu acesso por R$27,90
+                <div class="price-final">
+                    <div class="val-de">De R$ 588,00 por apenas</div>
+                    <div class="val-por">
+                        <span class="symbol">R$</span>27,90
+                    </div>
+                </div>
+
+                <a href="https://pay.wiapy.com/cnRHdlhFGk" class="btn-checkout-final">
+                    GARANTIR MEU ACESSO AGORA
                 </a>
 
-                <div class="security-badge-footer">
+                <div class="oferta-footer-note">
                     <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                    Compra segura • 7 dias de garantia
+                    Compra Segura • 7 dias de garantia incondicional
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- SEÇÃO GARANTIA -->
-    <section class="sec-garantia section-padding">
+    <!-- SEÇÃO RESUMINDO & GARANTIA -->
+    <section class="sec-resumindo section-padding">
         <div class="container">
+            <h2 class="section-title">Resumindo...</h2>
+            <p class="resumindo-subtitle">Pode ser a última vez que você vê esta página, então garanta agora o seu acesso imediato.</p>
+            
+            <ul class="resumindo-list">
+                <li class="resumindo-item">
+                    <span class="resumindo-icon">✕</span>
+                    <span>Você <strong>não precisa</strong> ter qualquer experiência prévia com técnicas de respiração;</span>
+                </li>
+                <li class="resumindo-item">
+                    <span class="resumindo-icon">✕</span>
+                    <span>Você <strong>não precisa</strong> gastar dezenas de horas estudando teorias longas e confusas;</span>
+                </li>
+                <li class="resumindo-item">
+                    <span class="resumindo-icon">✕</span>
+                    <span>Você <strong>não precisa</strong> se resignar ao pânico ou depender unicamente da anestesia;</span>
+                </li>
+                <li class="resumindo-item">
+                    <span class="resumindo-icon">✕</span>
+                    <span>Você <strong>não precisa</strong> se sentir perdida ou sem controle no dia mais importante da sua vida.</span>
+                </li>
+            </ul>
+
             <div class="garantia-box">
-                <span class="garantia-icon">🛡️</span>
-                <h2 class="section-title">7 dias de <em>garantia</em> incondicional</h2>
-                <p>
-                    Se por qualquer motivo você ou seu parceiro acharem que o método não ajudou na preparação, basta nos enviar um e-mail em até 7 dias após a compra. Devolvemos 100% do valor pago imediatamente.
+                <span class="garantia-badge-icon">🛡️</span>
+                <h4>Garantia de Risco ZERO</h4>
+                <p>A proposta é simples e clara: experimente o Método Parto com Confiança por 7 dias. Se você assistir às aulas e achar que as técnicas não trouxeram segurança ou controle para a preparação do seu parto, basta nos enviar um e-mail. Devolvemos 100% do seu investimento de forma rápida, sem perguntas e sem burocracia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO MENTORA -->
+    <section class="sec-doula section-padding">
+        <div class="container">
+            <div class="doula-profile">
+                <div class="doula-img-wrapper">
+                    <img src="imagem-bio.webp" alt="Roberta - Doula e Mentora" class="doula-img">
+                </div>
+                <p class="doula-text-main">
+                    Sua mentora: Roberta, doula especialista em respiração estratégica para o parto normal.
                 </p>
-                <p><strong>O risco é totalmente nosso. A preparação segura é sua.</strong></p>
+                <p class="doula-text-sub">
+                    Com mais de 527 partos acompanhados e mulheres orientadas, Roberta desenvolveu esta metodologia focada em soltura e respiração pélvica para que gestantes recuperem o controle do próprio corpo, eliminem o pânico e guiem o nascimento de seus bebês com absoluta segurança e respeito.
+                </p>
             </div>
         </div>
     </section>
@@ -1653,70 +1432,54 @@
             <h2 class="section-title">Perguntas <em>frequentes</em></h2>
             
             <div class="faq-list">
-                
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Funciona para quem vai fazer peridural?</span>
                         <span class="faq-toggle-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim. As técnicas de respiração ajudam especialmente antes da peridural, quando as contrações são mais intensas. Além disso, o Puxo Fisiológico Soprado é essencial mesmo com anestesia — você ainda vai precisar conduzir a descida de forma controlada.</p>
+                        <p>Sim. As técnicas de respiração auxiliam principalmente antes da aplicação da peridural, que costuma ser o momento de dor mais intensa. Além disso, no momento do expulsivo, mesmo com anestesia, respirar de forma correta direciona o bebê sem causar lesões no períneo.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Precisa de equipamento especial para praticar?</span>
+                        <span>Precisa de algum equipamento especial?</span>
                         <span class="faq-toggle-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Não. Tudo o que você precisa é do seu celular para assistir às aulas e de um local tranquilo para praticar. As técnicas são aplicadas no dia a dia, em qualquer posição confortável.</p>
+                        <p>Não. Você só precisa do seu celular ou computador para assistir às aulas e de um lugar confortável para praticar 5 a 10 minutos por dia.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>A partir de quantas semanas posso começar?</span>
                         <span class="faq-toggle-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Você pode começar a qualquer momento da gestação. O ideal é ter pelo menos 4 semanas de prática antes do parto para fixar o reflexo — mas mesmo quem começa mais tarde tem benefícios imediatos enormes no controle da dor.</p>
+                        <p>Você pode começar em qualquer fase da gestação. Quanto antes iniciar, mais automático se tornará o reflexo no dia do parto. Mas mesmo quem começa no final da gestação tem ganhos expressivos no controle da dor.</p>
                     </div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Funciona para cesárea planejada?</span>
+                        <span>Como funciona o reembolso?</span>
                         <span class="faq-toggle-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>As técnicas de respiração auxiliam no controle da ansiedade no pré-cirúrgico e no manejo de dores no pós-operatório. O módulo de parto em si é voltado para o parto vaginal, mas a respiração e o relaxamento ajudam em qualquer parto.</p>
+                        <p>Se em até 7 dias da compra você decidir que o material não é para você, basta nos enviar um e-mail para receber o reembolso completo do valor investido.</p>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Como acesso a plataforma após a compra?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Imediatamente após a confirmação do pagamento, você recebe os dados de acesso por e-mail. A plataforma roda diretamente no navegador do seu celular ou computador — não precisa baixar nenhum aplicativo pesado.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Consigo meu reembolso se eu não gostar?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Com certeza. Você tem 7 dias corridos a partir da data de compra para testar o método. Se achar que não ajudou, basta enviar um e-mail e fazemos o reembolso de 100% sem nenhuma burocracia.</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
+
+    <!-- TOAST PURCHASES CONTAINER -->
+    <div id="toast-purchase" class="toast-notification">
+        <div class="toast-icon">✓</div>
+        <div class="toast-content">
+            <strong id="toast-name">Carla E.</strong> <span id="toast-payment">comprou via Pix</span>
+            <span class="toast-time" id="toast-time">há 17 minutos</span>
+        </div>
+    </div>
 
     <!-- RODAPÉ -->
     <footer class="site-footer">
@@ -1727,10 +1490,120 @@
                 <a href="#">Termos de Uso</a>
                 <a href="#">Suporte</a>
             </div>
-            <p class="footer-disclaimer">Este produto não substitui o acompanhamento médico obstétrico pré-natal. Consulte sempre seu profissional de saúde.</p>
+            <p class="footer-disclaimer">Este produto não substitui o acompanhamento médico obstétrico e pré-natal. Consulte sempre seu profissional de saúde.</p>
         </div>
     </footer>
 
+    <!-- SCRIPTS -->
+    <script>
+        // 1. Data Dinâmica
+        function updateDate() {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const dateStr = new Date().toLocaleDateString('pt-BR', options);
+            const el = document.getElementById('current-date');
+            if (el) el.textContent = dateStr.toUpperCase();
+        }
 
+        // 2. Evergreen Countdown (15 minutos)
+        function startTimer() {
+            let time = localStorage.getItem('ondas_timer_val');
+            if (!time) {
+                time = 15 * 60;
+            } else {
+                time = parseInt(time);
+            }
+            
+            const countdownEl = document.getElementById('countdown');
+            
+            const interval = setInterval(() => {
+                let minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+                
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                
+                if (countdownEl) {
+                    countdownEl.textContent = `${minutes}:${seconds}`;
+                }
+                
+                if (time <= 0) {
+                    time = 15 * 60;
+                } else {
+                    time--;
+                }
+                localStorage.setItem('ondas_timer_val', time);
+            }, 1000);
+        }
+
+        // 3. FAQ Accordion Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const active = document.querySelector('.faq-item.active');
+                if (active && active !== item) {
+                    active.classList.remove('active');
+                    active.querySelector('.faq-answer').style.maxHeight = null;
+                }
+                item.classList.toggle('active');
+                const answer = item.querySelector('.faq-answer');
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+
+        // 4. Toast Notifications de Vendas
+        const purchases = [
+            { nome: "Jussara L.", tempo: "há 40 minutos", pagamento: "comprou no cartão de crédito" },
+            { nome: "Dra. Bruna M.", tempo: "há 7 minutos", pagamento: "comprou via Pix" },
+            { nome: "Alyne D.", tempo: "há 33 minutos", pagamento: "comprou no cartão de débito" },
+            { nome: "Acsa S.", tempo: "há 27 minutos", pagamento: "comprou via Pix" },
+            { nome: "Tânia R.", tempo: "há 19 minutos", pagamento: "comprou no cartão de crédito" },
+            { nome: "Marlene L.", tempo: "há 45 minutos", pagamento: "comprou via Pix" },
+            { nome: "Isabel I.", tempo: "há 21 minutos", pagamento: "comprou no cartão de débito" },
+            { nome: "Débora N.", tempo: "há 39 minutos", pagamento: "comprou no cartão de crédito" },
+            { nome: "Verônica C.", tempo: "há 9 minutos", pagamento: "comprou via Pix" },
+            { nome: "Carla E.", tempo: "há 17 minutos", pagamento: "comprou via Pix" }
+        ];
+
+        function runToastNotifications() {
+            const toast = document.getElementById('toast-purchase');
+            const nameEl = document.getElementById('toast-name');
+            const payEl = document.getElementById('toast-payment');
+            const timeEl = document.getElementById('toast-time');
+            
+            let currentIndex = 0;
+            
+            function showToast() {
+                const current = purchases[currentIndex];
+                nameEl.textContent = current.nome;
+                payEl.textContent = current.pagamento;
+                timeEl.textContent = current.tempo;
+                
+                toast.classList.add('show');
+                
+                // Hide after 4.5 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4500);
+                
+                currentIndex = (currentIndex + 1) % purchases.length;
+            }
+            
+            // Show toast every 14 seconds
+            setTimeout(showToast, 3000); // First toast after 3s
+            setInterval(showToast, 14000);
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDate();
+            startTimer();
+            runToastNotifications();
+        });
+    </script>
 </body>
 </html>
