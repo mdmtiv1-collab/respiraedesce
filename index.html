@@ -68,22 +68,6 @@
             padding: 0 24px;
         }
 
-        /* ── BARRA DE ANÚNCIO DINÂMICA ── */
-        .announcement-bar {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 12px 20px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .announcement-bar strong {
-            color: #FFB3A6;
-            font-weight: 600;
-        }
 
         /* TIMER DE ESCASSEZ */
         .scarcity-bar {
@@ -1067,10 +1051,6 @@
 </head>
 <body>
 
-    <!-- BARRA DE ANÚNCIO DINÂMICA -->
-    <div class="announcement-bar">
-        🔥 VÁLIDO HOJE: <span id="current-date">CARREGANDO...</span>! 🔥
-    </div>
 
     <!-- TIMER DE ESCASSEZ -->
     <div class="scarcity-bar">
@@ -1496,13 +1476,6 @@
 
     <!-- SCRIPTS -->
     <script>
-        // 1. Data Dinâmica
-        function updateDate() {
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            const dateStr = new Date().toLocaleDateString('pt-BR', options);
-            const el = document.getElementById('current-date');
-            if (el) el.textContent = dateStr.toUpperCase();
-        }
 
         // 2. Evergreen Countdown (15 minutos)
         function startTimer() {
@@ -1600,7 +1573,6 @@
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
-            updateDate();
             startTimer();
             runToastNotifications();
         });
