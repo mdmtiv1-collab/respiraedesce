@@ -75,12 +75,14 @@
             color: var(--white);
             text-align: center;
             padding: 10px 20px;
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .scarcity-bar span.time-badge {
@@ -1131,7 +1133,7 @@
 
     <!-- TIMER DE ESCASSEZ -->
     <div class="scarcity-bar">
-        A oferta especial termina em: <span class="time-badge" id="countdown">15:00</span> minutos
+        A oferta especial termina em: <span class="time-badge" id="countdown">25:00</span> minutos
     </div>
 
     <!-- HERO SECTION -->
@@ -1574,11 +1576,11 @@
     <!-- SCRIPTS -->
     <script>
 
-        // 2. Evergreen Countdown (15 minutos)
+        // 2. Evergreen Countdown (25 minutos)
         function startTimer() {
-            let time = localStorage.getItem('ondas_timer_val');
+            let time = localStorage.getItem('ondas_timer_val_25');
             if (!time) {
-                time = 15 * 60;
+                time = 25 * 60;
             } else {
                 time = parseInt(time);
             }
@@ -1597,11 +1599,11 @@
                 }
                 
                 if (time <= 0) {
-                    time = 15 * 60;
+                    time = 25 * 60;
                 } else {
                     time--;
                 }
-                localStorage.setItem('ondas_timer_val', time);
+                localStorage.setItem('ondas_timer_val_25', time);
             }, 1000);
         }
 
