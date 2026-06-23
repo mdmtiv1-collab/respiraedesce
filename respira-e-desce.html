@@ -1045,6 +1045,69 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* ── SEÇÃO DEPOIMENTOS EM MARQUEE ── */
+        .testimonials-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0 20px;
+            background-color: var(--white);
+        }
+
+        .testimonials-marquee {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: slide-marquee 45s linear infinite;
+        }
+
+        .testimonials-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonial-img-wrapper {
+            flex-shrink: 0;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(184, 92, 75, 0.05);
+            overflow: hidden;
+            padding: 8px;
+            transition: var(--transition);
+        }
+
+        .testimonial-img-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(184, 92, 75, 0.15);
+        }
+
+        .testimonial-img-wrapper img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            border-radius: calc(var(--radius-md) - 8px);
+        }
+
+        @keyframes slide-marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-img-wrapper {
+                height: 320px;
+            }
+        }
     </style>
     
     <script
@@ -1295,26 +1358,32 @@
     </section>
 
     <!-- DEPOIMENTOS REALISTAS -->
-    <section class="sec-depoi section-padding" style="background-color: var(--white); border-bottom: 1px solid rgba(54, 36, 36, 0.05);">
-        <div class="container">
+    <section class="sec-depoi section-padding" style="background-color: var(--white); border-bottom: 1px solid rgba(54, 36, 36, 0.05); overflow: hidden;">
+        <div class="container" style="max-width: 100%; padding: 0;">
             <span class="section-label">Relatos</span>
             <h2 class="section-title">O que nossas alunas <em>estão dizendo</em></h2>
             
-            <div class="goals-grid">
-                <div class="goal-card" style="background-color: var(--bg-card);">
-                    <div style="color: #FFB500; font-size: 14px; margin-bottom: 12px;">★★★★★</div>
-                    <p style="font-size: 14.5px; font-style: italic; color: var(--text-muted); margin-bottom: 20px;">"Eu morria de medo das contrações. Pratiquei as respirações toda semana e, na hora do parto, meu corpo sabia exatamente o que fazer. Minha dilatação de 4 para 10cm foi muito rápida!"</p>
-                    <strong style="font-size: 13px; color: var(--text-title);">Ana Paula M.</strong>
-                </div>
-                <div class="goal-card" style="background-color: var(--bg-card);">
-                    <div style="color: #FFB500; font-size: 14px; margin-bottom: 12px;">★★★★★</div>
-                    <p style="font-size: 14.5px; font-style: italic; color: var(--text-muted); margin-bottom: 20px;">"O módulo da preparação pélvica e soltura mandibular salvou meu expulsivo. Meu marido sabia como me lembrar de soltar a boca. Não tive nenhuma laceração ou rasgo."</p>
-                    <strong style="font-size: 13px; color: var(--text-title);">Camila R.</strong>
-                </div>
-                <div class="goal-card" style="background-color: var(--bg-card);">
-                    <div style="color: #FFB500; font-size: 14px; margin-bottom: 12px;">★★★★★</div>
-                    <p style="font-size: 14.5px; font-style: italic; color: var(--text-muted); margin-bottom: 20px;">"Tive meu bebê pelo SUS e esse curso foi o melhor investimento que fiz. As aulas são curtas e práticas, direto ao ponto. Consegui parir de forma natural e muito tranquila."</p>
-                    <strong style="font-size: 13px; color: var(--text-title);">Juliana F.</strong>
+            <div class="testimonials-marquee-container">
+                <div class="testimonials-marquee">
+                    <!-- Original set -->
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new1.png" alt="Depoimento 1" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new2.png" alt="Depoimento 2" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new3.png" alt="Depoimento 3" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new5.png" alt="Depoimento 4" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new6.png" alt="Depoimento 5" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new7.png" alt="Depoimento 6" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new8.png" alt="Depoimento 7" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new10.png" alt="Depoimento 8" loading="lazy"></div>
+                    
+                    <!-- Duplicated set for seamless loop -->
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new1.png" alt="Depoimento 1" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new2.png" alt="Depoimento 2" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new3.png" alt="Depoimento 3" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new5.png" alt="Depoimento 4" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new6.png" alt="Depoimento 5" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new7.png" alt="Depoimento 6" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new8.png" alt="Depoimento 7" loading="lazy"></div>
+                    <div class="testimonial-img-wrapper"><img src="depoimento_new10.png" alt="Depoimento 8" loading="lazy"></div>
                 </div>
             </div>
         </div>
